@@ -28,11 +28,13 @@ body{
 
 .pic-item{
   margin: 24px;
+  transition: 1200ms cubic-bezier(0.03, 0.98, 0.52, 0.99);
 }
 
 .pic-item img{
   width: 100%;
   height: auto;
+  box-shadow: 14px 14px 0px yellow;
 }
 
 .Pics li:first-child{
@@ -79,11 +81,19 @@ button{
   font-size: 20px;
   line-height: 32px;
   color: white;
-  background-color: #202024;
+  background-color: #1d1d1d;
   border: none;
-  box-shadow: 40px 20px 0px black;
+  box-shadow: 14px 14px 0px black;
   box-shadow-color: black;
   text-align: right;
+  width:120px;
+}
+
+button:hover{
+  cursor: pointer;
+  box-shadow: 18px 18px 0px black;
+  transition: 1200ms cubic-bezier(0.03, 0.98, 0.52, 0.99);
+  transform: rotate3d(0,10,10,-2deg);
 }
 
 @keyframes App-logo-spin {

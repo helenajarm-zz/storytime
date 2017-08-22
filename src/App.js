@@ -1,7 +1,7 @@
 import React  from 'react';
 import './App.css';
 import './flexboxgrid.css';
-import Image from './Image'
+import Image, {Images} from './Image'
 import Navigation from './Navigation'
 import Content from './Content'
 
@@ -17,6 +17,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       place: 0,
+      nextplace: 1,
       numberOfImages:1,
       pictureVisible: true,
       bgColor: Colors[0],
@@ -29,25 +30,36 @@ class App extends React.Component {
     this.changeColor = this.changeColor.bind(this);
   }
 
-
   changeColor(){
     this.setState({
       bgColor: Colors[Math.floor(Math.random() * 4) + 0],
     });
   }
 
+
   forward(){
     this.changeColor();
-    this.setState({
-      place: this.state.place + 1,
-    });
+    if ( this.state.place < Content.length - 2){
+      this.setState({ place: this.state.place + 1,nextplace: this.state.place + 2});
+    }
+    else if( this.state.place == Content.length - 2){
+      this.setState({ place: this.state.place + 1,nextplace: 0});
+      console.log(this.state.place);
+      console.log(Content.length);
+    }
+    else{
+      this.setState({ place: 0, nextplace: 1});
+    }
 }
 
   backward(){
     this.changeColor();
-    this.setState({
-      place: this.state.place - 1,
-    });
+    if( this.state.place == 0){
+      this.setState({ place: Content.length - 1});
+    }
+    else{
+      this.setState({ place: this.state.place - 1 });
+    }
   }
 
   //random(){
@@ -71,12 +83,18 @@ class App extends React.Component {
 
 
 
-
   render() {
     let images =[];
     if (this.state.pictureVisible){
       for (let i = 0; i < this.state.numberOfImages; i += 1) {
-        images.push(<Image key={i} image1={Content[this.state.place].image1} image1position={Content[this.state.place].image1position} image2={Content[this.state.place].image2} image2position={Content[this.state.place].image2position}/>);
+        images.push(<Images
+          key={i}
+          boxShadow1={Content[this.state.place].boxShadow1}
+          boxShadow2={Content[this.state.place].boxShadow2}
+          image1={Content[this.state.place].image1}
+          image1position={Content[this.state.place].image1position}
+          image2={Content[this.state.place].image2}
+          image2position={Content[this.state.place].image2position}/>);
       }
     }
 
@@ -85,19 +103,22 @@ class App extends React.Component {
         <div className="Title">
           <p> In Japan </p>
           <div onClick={this.backward}>{Content[this.state.place].title}</div>
-          <div className="secondaryTitle"  onClick={this.forward}>{Content[this.state.place + 1].title}</div>
+          <div className="secondaryTitle"  onClick={this.forward}>{Content[this.state.nextplace].title}</div>
         </div>
+
+        {images}
+
         <div className="row z-2">
           <div className={"Copy" + Content[this.state.place].copyposition}>{Content[this.state.place].copy} <br /><br /> {Content[this.state.place].copy2}</div>
         </div>
-          {images}
+
         <Navigation
           navigatePrimary={this.forward}
           button1={Content[this.state.place].button1}
-          button1position = {Content[this.state.place].button1position}
+          button1position={Content[this.state.place].button1position}
           navigateSecondary={this.backward}
           button2={Content[this.state.place].button2}
-          button2position = {Content[this.state.place].button2position}
+          button2position={Content[this.state.place].button2position}
           /*addPicture={this.addPicture}  toggle={this.toggle}*/
         />
       </div>
