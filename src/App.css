@@ -1,13 +1,13 @@
 body{
-  background-color: #202024;
+  background-color: white;
   font-size:12px;
   margin: 40px 80px;
-  color: white;
-  font-family: 'Montserrat',sans-serif;
+  color: #17171b;
+  font-family: 'Playfair Display',sans-serif;
 }
 
 .Scene{
-  margin: 40px;
+  margin: 32px 40px;
 }
 
 .App {
@@ -34,7 +34,10 @@ body{
 .pic-item img{
   width: 100%;
   height: auto;
-  box-shadow: 14px 14px 0px yellow;
+  box-shadow: #dedcd6 12px 12px 0px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  /*border: 4px solid black;*/
 }
 
 .Pics li:first-child{
@@ -42,28 +45,130 @@ body{
   flex-grow: 1;
 }
 
-.Title{
-  font-family: 'Montserrat',sans-serif;
-  font-weight: bold;
-  font-size: 18px;
-  display: inline-block;
-  margin-bottom: 40px;
+
+.Buttons{
+
 }
 
-.secondaryTitle{
-  position: absolute;
-  right: 0px;
-  display: inline-block;
-  opacity: .4;
+.row{
+  width: 98% !important;
+}
+
+
+.Buttons button{
+  font-family: 'Ubuntu Mono', monospace;
+  background-color: transparent;
+  border-style: solid;
+  border-color:black;
+  border-width: 2px;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  font-size: 16px;
+  line-height: 1.4em;
+  color: black;
+  text-align: right;
+  letter-spacing: .4pt;
+  outline: 0;
+  padding: 16px;
+  text-align: center;
+  width: 50%;
+}
+
+
+button:hover{
+  cursor: pointer;
+  outline: 0;
+  background-color: #E0391B;
+  color: white;
+  -webkit-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color 300ms linear;
+}
+
+.lowopacity{
+  float:left;
+  border-right: 2px solid black !important;
+}
+
+.left{
+  float:left;
+}
+
+.right{
+  float:right;
+}
+
+
+.Nav{
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 12px;
+    display: block;
+    z-index: 10;
+    padding: 12px 24px;
+    border-bottom: 1px solid black;
+    height:12px;
+}
+
+
+.Nav a{
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #17171b;
+  letter-spacing: .3pt;
+  padding-left: 8px;
+}
+
+.Nav a:hover{
+  text-decoration: underline;
+}
+
+
+
+
+
+button:focus{
 }
 
 .Copy{
-  font-family: 'Lora',serif;
-  font-size: 22px;
-  background-color: #202024;
-  padding: 24px;
-  line-height: 1.8em;
+  color:#17171b;
+  border: 2px solid black;
   z-index: 1;
+  /*box-shadow: 2px 2px 40px 2px rgba(0,0,0,.1);*/
+  font-family: 'Ubuntu Mono', monospace;
+      padding: 0px !important;
+}
+
+
+.Title{
+  font-family: 'Ubuntu Mono', monospace;
+  color: #211b10;
+  /* background-color: #211b10; */
+  font-size: 16px;
+  text-align: center;
+  display: block;
+  padding: 16px 0px;
+  background-color: #F0C838;
+  border-bottom: 2px solid black;
+  cursor: crosshair;
+  font-weight: bold;
+  line-height: 1.2em;
+}
+
+
+.Copy p{
+  padding: 24px;
+  font-size: 18px;
+  line-height: 1.6em;
+  -webkit-margin-after: 0px;
+  -webkit-margin-before: 0px;
+}
+
+.Copy p:hover{
+  background-color:rgba(255,255,255,.6);
+  -webkit-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color 300ms linear;
 }
 
 .box{
@@ -75,28 +180,68 @@ body{
 
 
 
-button{
-  font-family: 'Montserrat',sans-serif;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 32px;
-  color: white;
-  background-color: #1d1d1d;
-  border: none;
-  box-shadow: 14px 14px 0px black;
-  box-shadow-color: black;
-  text-align: right;
-  width:120px;
+
+
+
+/* Images fade */
+
+.fade-enter, .fade-appear {
+  opacity: 0;
 }
 
-button:hover{
-  cursor: pointer;
-  box-shadow: 18px 18px 0px black;
-  transition: 1200ms cubic-bezier(0.03, 0.98, 0.52, 0.99);
-  transform: rotate3d(0,10,10,-2deg);
+.fade-enter.fade-enter-active, .fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 700ms ease-in 200ms;
 }
+
+.fade-leave {
+  opacity: 1;
+  position: relative;
+}
+
+.fade-leave.fade-leave-active {
+  position: relative;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0ms ease-in;
+}
+
+/* Copy fade */
+
+.copyfade-enter, .copyfade-appear {
+  opacity: 0;
+}
+
+.copyfade-enter.copyfade-enter-active, .copyfade-appear.copyfade-appear-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in 1s ;
+}
+
+.copyfade-leave {
+  opacity: 1;
+  position: absolute;
+}
+
+.copyfade-leave.copyfade-leave-active {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0ms 0s ease-out ;
+}
+
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+@media screen and (max-width: 900px) {
+
+  .Logo a{
+      transform: rotate(0deg);
+      padding: 32px;
+      top:0px;
+    }
+
 }

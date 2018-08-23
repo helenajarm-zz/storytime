@@ -1,21 +1,5 @@
 import React, {Component}from 'react';
-
-
-export const Images = ({image1,image1position, image2, image2position, boxShadow1, boxShadow2}) => (
-  <div className="row z-1">
-    <Image
-      imagePosition={image1position}
-      image={image1}
-      boxShadow={boxShadow1}
-    />
-    <Image
-      imagePosition={image2position}
-      image={image2}
-      boxShadow={boxShadow2}
-    />
-  </div>
-)
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 
 class Image extends Component {
   constructor(props) {
@@ -32,7 +16,6 @@ class Image extends Component {
     this.onMouseOver = this.onMouseOver.bind(this);
     this.normalPic = this.normalPic.bind(this);
   }
-
 
   onMouseOver(e){
       this.setState({
