@@ -14,14 +14,22 @@ class App extends React.Component {
     this.state = {
       place: 0,
       nextplace: 1,
+      class: "none",
     };
     this.choice1 = this.choice1.bind(this);
     this.choice2 = this.choice2.bind(this);
+    this.progress = this.progress.bind(this);
   }
-
 
   begin(){
     this.setState({place: 0});
+    this.setState({class: "none" });
+  }
+
+  progress(){
+    if (this.state.place > 16){
+      this.setState({class: "End" });
+    }
   }
 
   choice1(){
@@ -36,8 +44,6 @@ class App extends React.Component {
     if ( this.state.place < Content.length - 2){
       this.setState({ place: this.state.place + 1,nextplace: this.state.place + 2});
     }
-
-
 }
 
 
@@ -62,16 +68,17 @@ class App extends React.Component {
               transitionAppearTimeout={1300}
               transitionEnterTimeout={1300}
               transitionLeaveTimeout={300}>
-              <div key={Content[this.state.place].copyposition} className={"Copy" + Content[this.state.place].copyposition}>
+              <div key={Content[this.state.place].copyposition} className={"Copy" + " " + this.state.class + Content[this.state.place].copyposition}>
                 <div className="Title">{Content[this.state.place].title}</div>
                 <p>
                     {Content[this.state.place].copy} <br/> <br/>
                     {Content[this.state.place].copy2}
+
                 </p>
                 <Navigation
+                  progress={this.progress}
                   choice1={this.choice1}
                   choice2={this.choice2}
-
 
                   button1copy={Content[this.state.place].button1copy}
                   button2copy={Content[this.state.place].button2copy}

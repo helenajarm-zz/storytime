@@ -11,7 +11,7 @@ class Timer extends Component {
   }
 
   componentDidMount() {
-    this.timer = setInterval(this.tick, 10000);
+    this.timer = setInterval(this.tick, 5000);
   }
 
   componentWillUnmount(){
@@ -31,6 +31,7 @@ class Timer extends Component {
       }
       else{
           window.location.reload();
+          
       }
     }
 
