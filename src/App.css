@@ -75,7 +75,7 @@ body{
 }
 
 
-.Buttons button{
+.Buttons a{
   font-family: 'Ubuntu Mono', monospace;
   border-style: solid;
   border-color:black;
@@ -90,13 +90,15 @@ body{
   outline: 0;
   padding: 16px;
   text-align: center;
-  width: 50%;
+  width: 41%;
   background-color: rgba(0, 0, 0, .2);
   color: white;
+  display:block;
+  text-decoration:none;
 }
 
 
-button:hover{
+.Buttons a:hover{
   cursor: pointer;
   outline: 0;
   background-color: #E0391B;

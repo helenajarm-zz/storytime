@@ -27,7 +27,7 @@ class App extends React.Component {
   }
 
   progress(){
-    if (this.state.place > 16){
+    if (this.state.place > 15){
       this.setState({class: "End" });
     }
   }
@@ -79,6 +79,7 @@ class App extends React.Component {
                   progress={this.progress}
                   choice1={this.choice1}
                   choice2={this.choice2}
+                  link={Content[this.state.place].link}
 
                   button1copy={Content[this.state.place].button1copy}
                   button2copy={Content[this.state.place].button2copy}

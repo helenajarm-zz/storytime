@@ -7,9 +7,8 @@ class Navigation extends Component {
    return(
 
      <div className="Buttons" onClick={this.props.progress}>
-       <button className="lowopacity" onClick={this.props.choice1}>{this.props.button1copy}</button>
-       <button className="right" onClick={this.props.choice2}>{this.props.button2copy}</button>
-
+       <a className="lowopacity" onClick={this.props.choice1}>{this.props.button1copy}</a>
+       <a className="right" href={this.props.link} onClick={this.props.choice2}>{this.props.button2copy}</a>
     </div>
 
   );
