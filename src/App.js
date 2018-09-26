@@ -2,9 +2,10 @@ import React  from 'react';
 import './App.css';
 import './flexboxgrid.css';
 import Image from './Image'
+import Player from './player'
 import Navigation from './Navigation'
-import Timer from './timer'
 import Content from './Content'
+
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 
 
@@ -27,8 +28,12 @@ class App extends React.Component {
   }
 
   progress(){
-    if (this.state.place > 15){
+    console.log(Content[this.state.place].choice1 ,Content[this.state.place].choice2 );
+    if (Content[this.state.place].choice1 > 17 && Content[this.state.place].choice2 < 21){
       this.setState({class: "End" });
+    }
+    else if (Content[this.state.place].choice1 == 0 && Content[this.state.place].choice2 == 0){
+      this.setState({class: "none" });
     }
   }
 
@@ -57,7 +62,8 @@ class App extends React.Component {
       <div className="Nav">
         <a className="left">Valdivia, 2100 BC</a>
         <a className="right" href="{this.begin}"> Start over</a>
-        <Timer />
+        <a className="right" >::</a>
+        <Player></Player>
       </div>
 
       <div className="Scene">
@@ -73,21 +79,16 @@ class App extends React.Component {
                 <p>
                     {Content[this.state.place].copy} <br/> <br/>
                     {Content[this.state.place].copy2}
-
                 </p>
                 <Navigation
                   progress={this.progress}
                   choice1={this.choice1}
                   choice2={this.choice2}
                   link={Content[this.state.place].link}
-
                   button1copy={Content[this.state.place].button1copy}
                   button2copy={Content[this.state.place].button2copy}
-
                 />
-
               </div>
-
         </ReactCSSTransitionGroup>
 
         <ReactCSSTransitionGroup component="div" className="row z-1"

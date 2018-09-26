@@ -11,7 +11,7 @@ class Timer extends Component {
   }
 
   componentDidMount() {
-    this.timer = setInterval(this.tick, 3000);
+    this.timer = setInterval(this.tick, 2000);
   }
 
   componentWillUnmount(){
@@ -23,16 +23,21 @@ class Timer extends Component {
       this.setState({
       elapsed: this.state.elapsed - 1
     });
+
   }
 
-    if( this.state.elapsed == 0 ){
-      this.state.elapsed = 0;
-      if(alert('Uh oh! Time has run out. Want to try again?')){
-      }
-      else{
-          window.location.reload();
+    if(this.state.elapsed == 0){
+      this.setState({ elapsed: 0 });
+      if (this.props.place < 15 ){
+        console.log("hey");
+        if(alert('Uh oh! Time has run out. Want to try again?')){
+        }
+        else{
+            window.location.reload();
 
+        }
       }
+
     }
 
   }
