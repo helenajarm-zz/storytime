@@ -23,14 +23,14 @@ class Image extends Component {
         mouseY: e.screenY,
         rotateX: (e.screenX/2-this.state.mouseX)/e.screenX*this.state.rotate,
         rotateY: (e.screenY/2-this.state.mouseY)/e.screenY*this.state.rotate,
-        transform: 'perspective(525px) translateZ(' + this.state.z + 'px) rotateX(' + this.state.rotateX + 'deg) rotateY('+ this.state.rotateY + 'deg)',
+        transform: 'scale(0.7)',
       });
       console.log(this.state.x, this.state.y);
   }
 
   normalPic(){
       this.setState({
-        transform: 'rotate3d(0,0,0,0deg)',
+        transform: 'scale(1)',
       })
 
   }
