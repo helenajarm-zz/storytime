@@ -238,9 +238,13 @@ body{
 
 @media screen and (max-width: 500px) {
 
+  #root{
+    overflow-x: hidden;
+  }
+
   .row.z-2{
     position: absolute;
-    top: 35%;
+    top: 30%;
     width: 90%;
 
     }
