@@ -60,7 +60,7 @@ class App extends React.Component {
 
     <div>
       <div className="Nav">
-        <a className="left">Valdivia, 2100 BC</a>
+        <a className="left" href="/">Valdivia, Ecuador -  2100 BC</a>
         <a className="right" href="/"> Start over</a>
         <a className="right" >::</a>
         <Player></Player>
