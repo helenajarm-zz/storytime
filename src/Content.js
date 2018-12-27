@@ -295,8 +295,8 @@ const Content = [
       copy2:"As you take the ring, you feel immediately powerful. You decide to stay as a ruler here in Valdivia, your brother already becoming a memory. ",
       button1copy: 'Try again',
       button2copy: 'Otra Vez',
-      link:1,
-
+      choice1: '0',
+      choice2: '0',
     }, //offer the earrings
     { id:19,
       title: '6:30 AM - The End',
@@ -309,7 +309,8 @@ const Content = [
       copy2:'Alone on the shore, you have nothing left to help your brother. You have failed.',
       button1copy: 'Try again',
       button2copy: 'Otra Vez',
-      link:1,
+      choice1: '0',
+      choice2: '0',
 
     }, // try and take it
     { id:20,
@@ -323,7 +324,8 @@ const Content = [
       copy2:"You\'ll be able to save your brother and his family. You did it. ",
       button1copy: 'Try again',
       button2copy: 'Otra Vez',
-      link:1,
+      choice1: '0',
+      choice2: '0',
 
 
     },
