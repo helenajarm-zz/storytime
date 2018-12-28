@@ -28,7 +28,7 @@ class Player extends Component {
   render () {
    return(
      <div>
-       <audio src="audio/audio.ogg"
+       <audio src="audio/drink-water.mp3"
          ref={(audio) => { this.audio = audio }}
          
        />
